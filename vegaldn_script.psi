@@ -1,17 +1,13 @@
-# Запрашиваем у пользователя путь до папки cfg через командную строку
 Write-Host "Введите путь до папки 'cfg' (например, D:\STEAM\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg):"
 $targetPath = Read-Host
 
-# Создаем файл autoexec.cfg
 $autoexecContent = "exec vegaldn.cfg"
 $autoexecPath = Join-Path -Path $targetPath -ChildPath "autoexec.cfg"
 Set-Content -Path $autoexecPath -Value $autoexecContent
 
-# Запрашиваем у пользователя клавишу для привязки через командную строку
 Write-Host "Введите клавишу для привязки (например, alt):"
 $bindKey = Read-Host
 
-# Создаем файл vegaldn.cfg с выбранной клавишей
 $vegaldnContent = @"
 alias "+boing" "+jump"
 alias "+ding" "-attack; -attack2"
